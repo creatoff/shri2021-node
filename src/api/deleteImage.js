@@ -9,5 +9,5 @@ module.exports = (req, res) => {
   }
 
   const file = new File(deleted);
-  res.status(410).send(file.toPublicJSON()).end();
+  res.send(file.toPublicJSON()).end();
 };
