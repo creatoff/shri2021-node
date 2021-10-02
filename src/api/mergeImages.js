@@ -31,8 +31,11 @@ module.exports = (req, res) => {
 
   replaceBackground(...replaceArgs).then(
     (readableStream) => {
+      res.type('image/jpeg');
       readableStream.pipe(res);
-      readableStream.on('end', () => res.end());
+      readableStream.on('end', () => {
+        res.end();
+      });
     },
   ).catch((err) => console.log(err));
 };
